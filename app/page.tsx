@@ -1,5 +1,19 @@
 import Link from "next/link"
-import { ArrowRight, CheckCircle2, CircleCheck, Sparkles } from "lucide-react"
+import {
+  ArrowRight,
+  Bot,
+  CheckCircle2,
+  CircleCheck,
+  ClipboardCheck,
+  ContactRound,
+  FileText,
+  Headphones,
+  LayoutDashboard,
+  Link2,
+  MapPinned,
+  MessageCircleMore,
+  Sparkles,
+} from "lucide-react"
 
 import { buttonVariants } from "@/components/ui/button"
 
@@ -13,6 +27,59 @@ const workflows = [
   { label: "Permintaan masuk", tone: "bg-brand-blue" },
   { label: "Tindak lanjut", tone: "bg-brand-violet" },
   { label: "Laporan harian", tone: "bg-brand-pink" },
+]
+
+const services = [
+  {
+    icon: MessageCircleMore,
+    title: "Automasi WhatsApp",
+    description: "Tanggapi pertanyaan pelanggan dengan lebih cepat dan terarah.",
+  },
+  {
+    icon: ContactRound,
+    title: "Pengelolaan Prospek",
+    description: "Catat dan tindak lanjuti peluang penjualan dengan lebih rapi.",
+  },
+  {
+    icon: ClipboardCheck,
+    title: "Pencatatan Pelanggan",
+    description: "Simpan informasi pelanggan dalam satu tempat yang mudah dicari.",
+  },
+  {
+    icon: LayoutDashboard,
+    title: "Dashboard Bisnis",
+    description: "Pantau informasi penting tanpa mengumpulkan data secara manual.",
+  },
+  {
+    icon: FileText,
+    title: "Laporan Otomatis",
+    description: "Siapkan laporan rutin dengan lebih cepat dan konsisten.",
+  },
+  {
+    icon: Link2,
+    title: "Penghubung Sistem",
+    description: "Hubungkan alat kerja agar data tidak perlu dicatat berulang.",
+  },
+  {
+    icon: ClipboardCheck,
+    title: "Alur Persetujuan",
+    description: "Permudah pemeriksaan dan persetujuan pekerjaan sehari-hari.",
+  },
+  {
+    icon: MapPinned,
+    title: "Operasional Lapangan",
+    description: "Bantu tim lapangan mengikuti proses kerja yang jelas.",
+  },
+  {
+    icon: Headphones,
+    title: "Layanan Pelanggan",
+    description: "Pastikan setiap permintaan tercatat dan ditindaklanjuti.",
+  },
+  {
+    icon: Bot,
+    title: "Asisten AI Bisnis",
+    description: "Bantu tim menemukan informasi dan menyelesaikan tugas rutin.",
+  },
 ]
 
 export default function Home() {
@@ -163,6 +230,56 @@ export default function Home() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="solusi" aria-labelledby="services-heading" className="relative scroll-mt-24 py-section">
+        <div
+          aria-hidden="true"
+          className="absolute inset-x-0 top-1/2 -z-10 h-2/3 -translate-y-1/2 bg-brand-ice/60"
+        />
+
+        <div className="mx-auto max-w-7xl px-gutter">
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="text-overline font-semibold text-brand-blue-deep">SOLUSI AUTOMORA</p>
+            <h2
+              id="services-heading"
+              className="mt-3 font-heading text-heading font-bold tracking-[-0.04em] text-foreground"
+            >
+              Solusi praktis untuk kerja bisnis yang lebih rapi.
+            </h2>
+            <p className="mt-4 text-body text-muted-foreground">
+              Pilih solusi yang paling sesuai dengan proses kerja dan kebutuhan bisnis Anda.
+            </p>
+          </div>
+
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+            {services.map((service) => {
+              const Icon = service.icon
+
+              return (
+                <article
+                  key={service.title}
+                  className="group card-surface flex min-h-60 flex-col p-5 transition duration-300 hover:-translate-y-1 hover:border-brand-blue/35 hover:shadow-card-hover motion-reduce:transform-none motion-reduce:transition-none"
+                >
+                  <div className="flex size-11 items-center justify-center rounded-button bg-secondary text-brand-blue-deep transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
+                    <Icon aria-hidden="true" className="size-5" />
+                  </div>
+                  <h3 className="mt-5 text-lg font-semibold tracking-[-0.02em] text-foreground">
+                    {service.title}
+                  </h3>
+                  <p className="mt-2 text-body-sm text-muted-foreground">{service.description}</p>
+                </article>
+              )
+            })}
+          </div>
+
+          <div className="mt-10 flex justify-center">
+            <Link href="#konsultasi" className={buttonVariants({ variant: "default", size: "lg" })}>
+              Konsultasi Gratis
+              <ArrowRight aria-hidden="true" />
+            </Link>
           </div>
         </div>
       </section>
