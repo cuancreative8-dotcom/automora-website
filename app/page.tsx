@@ -115,9 +115,14 @@ export default function Home() {
             </p>
 
             <div className="animate-in fade-in slide-in-from-bottom-4 mt-8 flex flex-col gap-3 sm:flex-row sm:items-center duration-700 delay-300 motion-reduce:animate-none">
-              <Link href="#konsultasi" className={buttonVariants({ variant: "default", size: "lg" })}>
+              <a
+                href="https://wa.me/6287868609767?text=Halo%20Tim%20AutoMora%2C%0A%0ASaya%20ingin%20berkonsultasi%20mengenai%20solusi%20Business%20Automation%20untuk%20bisnis%20saya.%0A%0AMohon%20informasi%20lebih%20lanjut.%0A%0ATerima%20kasih."
+                target="_blank"
+                rel="noopener noreferrer"
+                className={buttonVariants({ variant: "default", size: "lg" })}
+              >
                 Jadwalkan Konsultasi Gratis
-              </Link>
+              </a>
               <Link href="#solusi" className={buttonVariants({ variant: "outline", size: "lg" })}>
                 Lihat Solusi
               </Link>
@@ -400,7 +405,9 @@ export default function Home() {
             </p>
             <div className="mt-8 flex justify-center">
               <a
-                href="https://wa.me/6287868609767"
+                href="https://wa.me/6287868609767?text=Halo%20Tim%20AutoMora%2C%0A%0ASaya%20ingin%20berkonsultasi%20mengenai%20solusi%20Business%20Automation%20untuk%20bisnis%20saya.%0A%0AMohon%20informasi%20lebih%20lanjut.%0A%0ATerima%20kasih."
+                target="_blank"
+                rel="noopener noreferrer"
                 className={`${buttonVariants({ variant: "secondary", size: "lg" })} min-w-[15rem] bg-Dark Navy px-8 text-brand-blue-deep hover:bg-light blue/95`}
               >
                 Jadwalkan Konsultasi Gratis
