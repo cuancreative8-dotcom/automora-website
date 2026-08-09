@@ -187,6 +187,8 @@
 
   html {
     @apply font-sans antialiased;
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
   }
 
   body {

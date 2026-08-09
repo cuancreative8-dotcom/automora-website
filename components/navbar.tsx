@@ -1,6 +1,5 @@
 "use client"
 
-import Image from "next/image"
 import Link from "next/link"
 import { Menu, X } from "lucide-react"
 import { useEffect, useState } from "react"
@@ -96,31 +95,30 @@ export function Navbar() {
   }
 
   return (
-    <header className="sticky top-0 z-50 px-gutter pt-3">
+    <header className="sticky top-0 z-50">
       <nav
         aria-label="Navigasi utama"
         className={cn(
-          "mx-auto max-w-7xl rounded-panel border px-content transition-[background-color,border-color,box-shadow,backdrop-filter] duration-300",
+          "w-full transition-[background-color,box-shadow,backdrop-filter] duration-300",
           isScrolled
-            ? "border-border/70 bg-background/75 shadow-card backdrop-blur-xl"
-            : "border-transparent bg-brand-navy shadow-none",
+            ? "bg-brand-navy/90 shadow-[0_10px_30px_rgba(4,17,46,0.16)] backdrop-blur-2xl"
+            : "bg-brand-navy shadow-[0_8px_20px_rgba(4,17,46,0.08)]",
         )}
       >
-        <div className="flex h-16 items-center justify-between gap-4">
+        <div className="w-full px-gutter">
+          <div className="flex h-20 items-center justify-between gap-4">
           <Link
             href="/"
             aria-label="AutoMora Beranda"
             className="flex shrink-0 items-center rounded-button focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-brand-blue/50"
             onClick={() => handleNavigation("/")}
           >
-            <Image
+            <img
               src="/logo/automora-logo-horizontal.png"
               alt="AutoMora"
-              width={1975}
-              height={795}
-              sizes="(min-width: 1024px) 160px, 140px"
-              priority
-              className="h-11 w-auto"
+              loading="eager"
+              decoding="async"
+              className="h-[4.75rem] w-auto sm:h-[5.25rem] md:h-[5.75rem]"
             />
           </Link>
 
@@ -169,7 +167,7 @@ export function Navbar() {
             aria-expanded={isMobileMenuOpen}
             aria-controls="mobile-navigation"
             className={cn(
-              "relative lg:hidden",
+              "relative rounded-full border border-white/10 lg:hidden",
               isScrolled
                 ? "text-foreground hover:bg-secondary hover:text-secondary-foreground"
                 : "text-white hover:bg-white/10 hover:text-white",
@@ -180,15 +178,13 @@ export function Navbar() {
           </Button>
         </div>
 
-        <div
-          id="mobile-navigation"
-          className={cn(
-            "grid transition-[grid-template-rows,opacity] duration-300 ease-out motion-reduce:transition-none lg:hidden",
-            isMobileMenuOpen
-              ? "mt-2 grid-rows-[1fr] opacity-100"
-              : "grid-rows-[0fr] opacity-0 pointer-events-none",
-          )}
-        >
+          <div
+            id="mobile-navigation"
+            className={cn(
+              "grid transition-[grid-template-rows,opacity] duration-300 ease-out motion-reduce:transition-none lg:hidden",
+              isMobileMenuOpen ? "mt-2 grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0 pointer-events-none",
+            )}
+          >
           <div className="overflow-hidden">
             <div
               className={cn(
@@ -230,6 +226,7 @@ export function Navbar() {
                 Konsultasi Gratis
               </Link>
             </div>
+          </div>
           </div>
         </div>
       </nav>
